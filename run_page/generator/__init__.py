@@ -63,8 +63,8 @@ class Generator:
         for activity in self.client.get_activities(**filters):
             if self.only_run and activity.type != "Run":
                 continue
-            if IGNORE_BEFORE_SAVING:
-                activity.summary_polyline = filter_out(activity.summary_polyline)
+            # if IGNORE_BEFORE_SAVING:
+            #     activity.summary_polyline = filter_out(activity.summary_polyline)
             created = update_or_create_activity(self.session, activity)
             if created:
                 sys.stdout.write("+")
